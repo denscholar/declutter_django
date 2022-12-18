@@ -609,6 +609,7 @@ h6 {
   height: 35vh;
   width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .card .card-body .amount-location-category{
@@ -631,12 +632,12 @@ h6 {
   margin: 0;
 }
 
-/* .card .card-body .condition{
+.card .card-body .condition{
   font-size: 15px;
   margin: 10px 0 20px 0;
   font-style: italic;
   font-weight: 400;
-} */
+}
 
 @media (min-width: 900px){
   .product-section{
