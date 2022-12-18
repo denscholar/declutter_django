@@ -1,0 +1,57 @@
+{% load static %}
+<section id="portfolio-details" class="portfolio-details">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-sm-6 col-lg-6">
+        <h1>The People's Zone for Decluttering</h1>
+        <p>
+          Declutter used or decently used items, a platform where you can
+          trustably buy and sell your items
+        </p>
+        <div class="get-started-button">
+          <a class="btn btn-outline-primary" href="#">Get started</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-6 image-container">
+        <div class="portfolio-details-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide">
+              <img src="{% static 'img/slide/bags23.png' %}" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <img src="{% static 'img/slide/laptop.jpg' %}" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <img src="{% static 'img/slide/headphone.png' %}" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <img src="{% static 'img/slide/shoe123.png' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="social-link pl-5">
+      <ul
+        class="social-link-wrapper d-flex flex justify-content-between flex-column gap-3"
+      >
+        <li class="social-link-item">
+          <img src="{% static 'img/social/facebook.png' %}" alt="" />
+        </li>
+        <li class="social-link-item">
+          <img src="{% static 'img/social/twitter.png' %}" alt="" />
+        </li>
+        <li class="social-link-item">
+          <img src="{% static 'img/social/linkedin.png'%}" alt="" />
+        </li>
+        <li class="social-link-item">
+          <img src="{% static 'img/social/instagram.png' %}" alt="" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
