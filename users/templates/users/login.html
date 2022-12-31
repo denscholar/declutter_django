@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Login Here</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              {% render_field login_form.email class+="error" placeholder="Email" %}
+              {% if login_form.email.errors %}
+        <ul class="errorlist">
+            {% for error in login_form.email.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              {% render_field login_form.password class+="error" placeholder="Password" %}
+              {% if login_form.password.errors %}
+        <ul class="errorlist">
+            {% for error in login_form.password.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+            </div>
+            <input class="button" type="submit" value="Log in" />
+          </form>
+        </div>
+        <div class="text-center">
+            <p class="p-0 m-0">You don't have an account?<a href="{% url 'users:register' %}"> Click here to create an account</a></p>
+        </div>
+      </div>
+{% endblock content %}

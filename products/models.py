@@ -1,6 +1,6 @@
 from django.db import models
 from django.db import models
-# from django.contrib.auth.models import User
+from users.models import CustomUser
 from django.utils import timezone
 from django.urls import reverse
 
@@ -19,6 +19,7 @@ class Product(models.Model):
         ("used", "Used"),
         ("seller refurbished", "Seller refurbished"),
     )
+    vendor = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product_name = models.CharField(max_length=30)
     location = models.CharField(max_length=10)
     description = models.TextField()
@@ -40,3 +41,12 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse("product_name", kwargs={"slug": self.slug})
+
+
+class MultipleImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    images = models.ImageField(upload_to='product_images')
+
+    def __str__(self):
+        return self.product.product_name
+    
