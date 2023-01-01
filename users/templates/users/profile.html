@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="new-year">
+    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+    <img src="{{user.profile.profile_image.url}}" alt="">
+    <p>{{ user.profile.phone_number }}</p>
+  </div>
+{% endblock content %}
