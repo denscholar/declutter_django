@@ -53,10 +53,17 @@ class CustomUser(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=14, default='+2348145******')
+    profile_image = models.ImageField(upload_to='profile_images', default='avartar.jpg')
+    location = models.CharField(max_length=50)
 
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     first_name = models.CharField(max_length=50)
-#     last_name = models.CharField(max_length=50)
-#     # phone_number = models
+    def __str__(self):
+        return self.user.first_name
+    
+
+
+
+
 

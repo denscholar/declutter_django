@@ -167,3 +167,4 @@ MESSAGE_TAGS = {
  }
 
 LOGIN_REDIRECT_URL = 'pages:home'
+LOGIN_URL = 'users:login'

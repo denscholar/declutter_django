@@ -2,10 +2,12 @@ from django.shortcuts import  render, redirect
 from .forms import CustomUserCreationForm, CustomUserLoginForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
-    context = {} 
+    context = {}
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -49,3 +51,9 @@ def logout_request(request):
     logout(request)
     messages.info(request, "You have been logged out!")
     return redirect("pages:home")
+
+
+@login_required
+def profile(request):
+    context = {} 
+    return render(request, 'users/profile.html', context)

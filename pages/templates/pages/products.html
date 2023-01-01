@@ -1,13 +1,26 @@
 {% load static %} {% load humanize %}
 <section class="product-section" style="background-color: #eee">
   <div class="text-center py-5">
-    <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
-
     <div class="row">
       {% for product in approved_products %}
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="shadow">
-          <div class="card p-3">
+          <div class="single-product">
+            <div class="product-f-image">
+                <img src="{{ product.product_image.url }}" alt="">
+                <div class="product-hover">
+                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                </div>
+            </div>
+            <h2><a href="single-product.html">{{ product.product_name }}</a></h2>
+            <div class="amount-location d-flex justify-content-between px-4">
+              <p class="amount py-0 m-0">₦{{ product.price|intcomma }}</p>
+              <span><img src="{% static 'img/social/location-pin.png' %}" alt="location icon"> {{ product.location }}</span>
+            </div>
+            <h3 class="condition text-start px-4 py-2"><span>Condition:</span> {{ product.condition }}</h3>
+        </div>
+          <!-- <div class="card p-3">
             <div class="image-container">
               <img src="{{ product.product_image.url }}" />
             </div>
@@ -29,10 +42,11 @@
                 >Add to Cart</a
               >
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
+

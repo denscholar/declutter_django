@@ -3,7 +3,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="#">Declutter<span class="text-white">Now</span></a></h1>
+      <h1 class="logo me-auto"><a href="{% url 'pages:home' %}">Declutter<span class="text-white">Now</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -18,7 +18,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li>
-                <a class="dropdown-item" href="#">My profile</a>
+                <a class="dropdown-item" href="{% url 'users:profile' %}">My profile</a>
               </li>
               {% if user.is_authenticated %}
               <li>
