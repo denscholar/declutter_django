@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="form_wrapper">
+  {% include 'partials/messages.html' %}
     <div class="form_container">
       <div class="title_container">
         <h2>Login Here</h2>
@@ -24,6 +25,7 @@
             </div>
             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
               {% render_field login_form.password class+="error" placeholder="Password" %}
+              <small class="float-end py-3"><a href="{% url 'users:request-reset-password-form' %}">Forgot Password?</a></small>
               {% if login_form.password.errors %}
         <ul class="errorlist">
             {% for error in login_form.password.errors %}
