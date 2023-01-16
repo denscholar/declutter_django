@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.humanize',
+    "django.contrib.humanize",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "pages",
     "products",
-    'users',
+    "users",
     # third party package
     "django_browser_reload",
-    'fontawesome_free',
-    'widget_tweaks',
+    "fontawesome_free",
+    "widget_tweaks",
 ]
 
 
@@ -65,7 +65,7 @@ ROOT_URLCONF = "declutter_now.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR,'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -92,13 +92,13 @@ WSGI_APPLICATION = "declutter_now.wsgi.application"
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': "postgres",
-        'NAME': 'declutter',
-        'PASSWORD': 'sunshine',
-        'HOST': 'localhost',
-        'PORT': '5432'
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "USER": "postgres",
+        "NAME": "declutter",
+        "PASSWORD": "sunshine",
+        "HOST": "localhost",
+        "PORT": "5432",
     },
 }
 
@@ -140,31 +140,34 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/static')
+STATIC_ROOT = os.path.join(BASE_DIR, "/static")
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 
-MEDIA_URL = '/media/'  
-  
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = "users.CustomUser"
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
- }
+    messages.ERROR: "danger",
+}
 
-LOGIN_REDIRECT_URL = 'pages:home'
-LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = "pages:home"
+LOGIN_URL = "users:login"
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '3c9806d18204e5'
+EMAIL_HOST_PASSWORD = 'e860ed1ec12eeb'
+EMAIL_PORT = '2525'
